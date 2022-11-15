@@ -71,6 +71,7 @@ io.on('connection', function(socket){
 			       id:socket.id,//alternatively we could use socket.id
 				   socketID:socket.id,//fills out with the id of the socket that was open
 				   muteUsers:[],
+				   muteAll:false,
 				   isMute:true
 				   };//new user  in clients list
 					
@@ -268,7 +269,7 @@ socket.on('GET_USERS_LIST',function(pack){
 
 	  if(currentUser )
       {
-		muteAll = true;
+		currentUser.muteAll = true;
 		clients.forEach(function(u) {
 			 
 		currentUser.muteUsers.push( clientLookup[u.id] );
@@ -291,7 +292,7 @@ socket.on('GET_USERS_LIST',function(pack){
 
 	  if(currentUser )
       {
-		muteAll = false;
+		currentUser.muteAll = false;
 		while(currentUser.muteUsers.length > 0) {
          currentUser.muteUsers.pop();
         }
@@ -390,7 +391,7 @@ socket.on('GET_USERS_LIST',function(pack){
 	
 	 // console.log("mute user: "+muteUser);
      
-      if(sockets[u.id]&&u.id!= currentUser.id&&!u.isMute&& distance < minDistanceToPlayer &&!muteUser &&!muteAll)
+      if(sockets[u.id]&&u.id!= currentUser.id&&!currentUser.isMute&& distance < minDistanceToPlayer &&!muteUser &&! sockets[u.id].muteAll)
       {
 		//  console.log("current user: "+currentUser.name);
 		  
