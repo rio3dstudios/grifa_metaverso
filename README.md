@@ -1,27 +1,25 @@
-# webglserver
-Basic NodeJS Server in Java Script for Unity WebGL Aplication
+# Projeto de metaverso Grifa
 
-WEBGL MULTIPLAYER Kit (HTML5)
-https://assetstore.unity.com/packages/tools/network/webgl-multiplayer-kit-145882
 
-this Server is powerful WebGL mmo template created special for multiplayer online games in html5. 
- Features: 
+live Demo 
 
-About unity WebGL client
 
- - Easy to send and receive messages from a nodeJS server
-  
- - Complete example scene.
+## To Run
 
- - Easy to read and understand code.
 
- - Optimized Code (C#).
+```
+# clone the project
+git clone https://github.com/rio3dstudios/grifa_metaverso.git
 
- - Script comments.
+# open the project directory
+cd grifa_metaverso-main/
 
- - Easy to deploy the game in any cloud service
+# install dependencies
+npm install
 
-* Play now WebGL Game Demo: https://webgltutorialserver.herokuapp.com/
 
-* Check out our online documentation for more information:
- https://drive.google.com/file/d/1BGJz_ofINMLXO8uMa8lI7LXvnC1jLKjP/view
+# start the application
+npm node server
+
+```
+
