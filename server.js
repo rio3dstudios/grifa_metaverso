@@ -395,7 +395,7 @@ socket.on('GET_USERS_LIST',function(pack){
       {
 		//  console.log("current user: "+currentUser.name);
 		  
-		 //  console.log("u.name: "+u.name);
+		// console.log("u.name: "+u.name);
      
     
         //sockets[u.id].emit('UPDATE_VOICE',currentUser.id,newData);
