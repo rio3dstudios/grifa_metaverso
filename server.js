@@ -58,12 +58,31 @@ io.on('connection', function(socket){
 	    console.log('[INFO] JOIN received !!! ');
 		
 		var data = JSON.parse(_data);
+		
+		
 
          // fills out with the information emitted by the player in the unity
         currentUser = {
 			       name:data.name,
 				   publicAddress: data.publicAddress,
 				   model:data.model,
+				   hair:data.hair,
+				   bear:data.bear,
+				   acesories:data.acesories,
+				   pants:data.pants,
+				   primary_tshirt:data.primary_tshirt,
+				   tshirt:data.tshirt,
+				   glasses:data.glasses,
+				   shoes:data.shoes,
+				   skin_color:data.skin_color,
+				   hair_color:data.hair_color,
+				   bear_color:data.bear_color,
+				   acesories_color:data.acesories_color,
+				   pants_color:data.pants_color,
+				   primary_tshirt_color:data.primary_tshirt_color,
+				   tshirt_color:data.tshirt_color,
+				   glasses_color:data.glasses_color,
+				   shoes_color:data.shoes_color,
                    posX:data.posX,
 				   posY:data.posY,
 				   posZ:data.posZ,
@@ -91,21 +110,24 @@ io.on('connection', function(socket){
 		 /*********************************************************************************************/		
 		
 		//send to the client.js script
-		socket.emit("JOIN_SUCCESS",currentUser.id,currentUser.name,currentUser.posX,currentUser.posY,currentUser.posZ,data.model);
+		socket.emit("JOIN_SUCCESS",currentUser.id,currentUser.name,currentUser.posX,currentUser.posY,currentUser.posZ,data.model,data.hair,data.bear,data.acesories,data.pants,data.primary_tshirt,data.tshirt,data.glasses,data.shoes,data.skin_color,data.hair_color,
+		data.bear_color,data.acesories_color,data.pants_color,data.primary_tshirt_color,data.tshirt_color,data.glasses_color,data.shoes_color);
 		
          //spawn all connected clients for currentUser client 
          clients.forEach( function(i) {
 		    if(i.id!=currentUser.id)
 			{ 
 		      //send to the client.js script
-		      socket.emit('SPAWN_PLAYER',i.id,i.name,i.posX,i.posY,i.posZ,i.model);
+		      socket.emit('SPAWN_PLAYER',i.id,i.name,i.posX,i.posY,i.posZ,i.model,i.hair,i.bear,i.acesories,i.pants,i.primary_tshirt,i.tshirt,i.glasses,i.shoes,i.skin_color,i.hair_color,
+		i.bear_color,i.acesories_color,i.pants_color,i.primary_tshirt_color,i.tshirt_color,i.glasses_color,i.shoes_color);
 			  
 		    }//END_IF
 	   
 	     });//end_forEach
 		
 		 // spawn currentUser client on clients in broadcast
-		socket.broadcast.emit('SPAWN_PLAYER',currentUser.id,currentUser.name,currentUser.posX,currentUser.posY,currentUser.posZ,data.model);
+		socket.broadcast.emit('SPAWN_PLAYER',currentUser.id,currentUser.name,currentUser.posX,currentUser.posY,currentUser.posZ,data.model,data.hair,data.bear,data.acesories,data.pants,data.primary_tshirt,data.tshirt,data.glasses,data.shoes,data.skin_color,data.hair_color,
+		data.bear_color,data.acesories_color,data.pants_color,data.primary_tshirt_color,data.tshirt_color,data.glasses_color,data.shoes_color);
 		
   
 	});//END_SOCKET_ON
