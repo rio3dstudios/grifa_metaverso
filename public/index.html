@@ -24,14 +24,13 @@
           <div id="unity-progress-bar-full"></div>
         </div>
       </div>
-    <div id="unity-warning"> </div> 
-  <!-- <div id="unity-footer">
+      <div id="unity-warning"> </div>
+      <!-- <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">Metaverse Sample</div>
       </div>
 	  -->
-	 
     </div>
 		<script src="/socket.io/socket.io.js"></script>
 	<script src="client.js"></script>
@@ -113,13 +112,12 @@
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
 		   window.unityInstance = unityInstance; // <-- this
-      fullscreenButton.onclick = () => {
+          fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
           };
         }).catch((message) => {
-          //alert(message);
+        //  alert(message);
         });
-		
       };
       document.body.appendChild(script);
 	

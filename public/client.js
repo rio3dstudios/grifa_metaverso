@@ -33,11 +33,11 @@ window.addEventListener('load', function() {
 	});//END_SOCKET.ON
 
 					      
-	socket.on('JOIN_SUCCESS', function(id,name,posX,posY,posZ,model,hair,bear,acesories,pants,primary_tshirt,tshirt,glasses,shoes,skin_color,hair_color,
-		bear_color,acesories_color,pants_color,primary_tshirt_color,tshirt_color,glasses_color,shoes_color) {
+	socket.on('JOIN_SUCCESS', function(id,name,posX,posY,posZ,model,hair,bear,pants,tshirt,glasses,shoes,skin_color,hair_color,
+		bear_color,pants_color,tshirt_color,glasses_color,shoes_color) {
 				      		
-	  var currentUserAtr = id+':'+name+':'+posX+':'+posY+':'+posZ+':'+model+':'+hair+':'+bear+':'+acesories+':'+pants+':'+primary_tshirt+':'+tshirt+':'+glasses+':'+shoes+':'+skin_color+':'+hair_color+':'+
-		bear_color+':'+acesories_color+':'+pants_color+':'+primary_tshirt_color+':'+tshirt_color+':'+glasses_color+':'+shoes_color;
+	  var currentUserAtr = id+':'+name+':'+posX+':'+posY+':'+posZ+':'+model+':'+hair+':'+bear+':'+pants+':'+tshirt+':'+glasses+':'+shoes+':'+skin_color+':'+hair_color+':'+
+		bear_color+':'+pants_color+':'+tshirt_color+':'+glasses_color+':'+shoes_color;
 	  
 	   if(window.unityInstance!=null)
 		{
@@ -49,11 +49,11 @@ window.addEventListener('load', function() {
 	});//END_SOCKET.ON
 	
 		
-	socket.on('SPAWN_PLAYER', function(id,name,posX,posY,posZ,model,hair,bear,acesories,pants,primary_tshirt,tshirt,glasses,shoes,skin_color,hair_color,
-		bear_color,acesories_color,pants_color,primary_tshirt_color,tshirt_color,glasses_color,shoes_color) {
+	socket.on('SPAWN_PLAYER', function(id,name,posX,posY,posZ,model,hair,bear,pants,tshirt,glasses,shoes,skin_color,hair_color,
+		bear_color,pants_color,tshirt_color,glasses_color,shoes_color) {
 	
-	    var currentUserAtr = id+':'+name+':'+posX+':'+posY+':'+posZ+':'+model+':'+hair+':'+bear+':'+acesories+':'+pants+':'+primary_tshirt+':'+tshirt+':'+glasses+':'+shoes+':'+skin_color+':'+hair_color+':'+
-		bear_color+':'+acesories_color+':'+pants_color+':'+primary_tshirt_color+':'+tshirt_color+':'+glasses_color+':'+shoes_color;
+	    var currentUserAtr = id+':'+name+':'+posX+':'+posY+':'+posZ+':'+model+':'+hair+':'+bear+':'+pants+':'+tshirt+':'+glasses+':'+shoes+':'+skin_color+':'+hair_color+':'+
+		bear_color+':'+pants_color+':'+tshirt_color+':'+glasses_color+':'+shoes_color;
 		
 		if(window.unityInstance!=null)
 		{
