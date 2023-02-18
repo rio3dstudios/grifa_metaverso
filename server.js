@@ -174,6 +174,25 @@ io.on('connection', function(socket){
 	  
 	});//END_SOCKET_ON
 	
+		//create a callback fuction to listening EmitAnimation() method in NetworkMannager.cs unity script
+	socket.on('DANCE_ANIMATION', function (_data)
+	{
+	  var data = JSON.parse(_data);	
+	  
+	  if(currentUser)
+	  {
+	   
+	   currentUser.timeOut = 0;
+	   
+	    //send to the client.js script
+	   //updates the animation of the player for the other game clients
+       socket.broadcast.emit('UPDATE_PLAYER_DANCE_ANIMATOR', currentUser.id,data.animation);
+	
+	   
+      }//END_IF
+	  
+	});//END_SOCKET_ON
+	
 	
 	
 //create a callback fuction to listening EmitGetBestKillers() method in NetworkMannager.cs unity script
