@@ -8,9 +8,10 @@
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
 	<style>
-  @media (min-width:768px) {
+<!--  @media (min-width:768px) {
     #unity-canvas { background: #231F20; width: 100vw !important; height: 100vh !important; }
-}
+} 
+-->
 </style>
 
 </head>
@@ -99,8 +100,8 @@
         config.devicePixelRatio = 1;
         unityShowBanner('WebGL builds are not supported on mobile devices.');
       } else {
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
+        canvas.style.width = "100vw";
+        canvas.style.height = "100vh";
       }
       loadingBar.style.display = "block";
 
