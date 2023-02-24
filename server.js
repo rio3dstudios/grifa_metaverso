@@ -7,6 +7,16 @@ var app      = express();// create an object of the express module
 var http     = require('http').Server(app);// create a http web server using the http library
 var io       = require('socket.io')(http);// import socketio communication module
 
+const cors=require("cors");
+const corsOptions ={
+   origin:'*', 
+   credentials:true,            //access-control-allow-credentials:true
+   optionSuccessStatus:200,
+}
+
+app.use(cors(corsOptions)) // Use this after the variable declaration
+
+
 
 
 
@@ -429,11 +439,11 @@ socket.on('GET_USERS_LIST',function(pack){
 		
 	//console.log("distance: "+distance);
 	
-	// console.log("mute user: "+muteUser);
+	 // console.log("mute user: "+muteUser);
      
-      if(sockets[u.id]&&u.id!= currentUser.id &&!currentUser.isMute&& distance < minDistanceToPlayer &&!muteUser &&! sockets[u.id].muteAll)
+      if(sockets[u.id]&&u.id!= currentUser.id&&!currentUser.isMute&& distance < minDistanceToPlayer &&!muteUser &&! sockets[u.id].muteAll)
       {
-		 // console.log("current user: "+currentUser.name);
+		//  console.log("current user: "+currentUser.name);
 		  
 		// console.log("u.name: "+u.name);
      
