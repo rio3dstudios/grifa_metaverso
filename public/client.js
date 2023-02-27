@@ -33,7 +33,7 @@ window.addEventListener('load', function() {
 	});//END_SOCKET.ON
 
 					      
-	socket.on('JOIN_SUCCESS', function(id,name,posX,posY,posZ,model,hair,bear,pants,tshirt,glasses,shoes,skin_color,hair_color,
+		socket.on('JOIN_SUCCESS', function(id,name,posX,posY,posZ,model,hair,bear,pants,tshirt,glasses,shoes,skin_color,hair_color,
 		bear_color,pants_color,tshirt_color,glasses_color,shoes_color) {
 				      		
 	  var currentUserAtr = id+':'+name+':'+posX+':'+posY+':'+posZ+':'+model+':'+hair+':'+bear+':'+pants+':'+tshirt+':'+glasses+':'+shoes+':'+skin_color+':'+hair_color+':'+

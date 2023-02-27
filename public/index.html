@@ -4,15 +4,9 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-  <title>GrifaURPProject</title>
+  <title>MetaverseSample</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-	<style>
-<!--  @media (min-width:768px) {
-    #unity-canvas { background: #231F20; width: 100vw !important; height: 100vh !important; }
-} 
--->
-</style>
 
 </head>
 
@@ -78,9 +72,9 @@
            frameworkUrl: buildUrl + "/public.framework.js",
            codeUrl: buildUrl + "/public.wasm",
            streamingAssetsUrl: "StreamingAssets",
-           companyName: "DefaultCompany",
-           productName: "GrifaURPProject",
-           productVersion: "0.1.0",
+           companyName: "Rio3DStudios",
+           productName: "MetaverseSample",
+           productVersion: "0.1",
 	       showBanner: unityShowBanner,
 	  
 	   
@@ -93,16 +87,15 @@
       // happening inside the engine, and you would instead like to size up
       // the canvas DOM size and WebGL render target sizes yourself.
       // config.matchWebGLToCanvasSize = false;
-	    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+	     if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         container.className = "unity-mobile";
         // Avoid draining fillrate performance on mobile devices,
         // and default/override low DPI mode on mobile browsers.
         config.devicePixelRatio = 1;
-	    canvas.style.width = "100vw";
-        canvas.style.height = "100vh";
+	   // canvas.style.width = "100vw";
+      //  canvas.style.height = "100vh";
         
       } else {
-	   
         canvas.style.width = "100vw";
         canvas.style.height = "100vh";
       }
