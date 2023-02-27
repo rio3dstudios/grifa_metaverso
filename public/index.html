@@ -4,9 +4,82 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-  <title>MetaverseSample</title>
+  <title>GrifaURPProject</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+
+	<style>
+	
+p {
+    text-align: justify;
+}
+
+.content {
+    margin: 0 auto;
+    max-width: 900px;
+    background-color: #eee;
+    padding: 10px;
+}
+
+.btn {
+    background-color: rgb(33, 156, 70);
+    padding: 5px 10px 5px 10px;
+    border: 2px solid rgb(4, 92, 30);
+    cursor: pointer;
+    transition: background .3s;
+    border-radius: 5px;
+    color: #FFF;
+}
+
+.btn:hover {
+    background-color: rgb(4, 92, 30);
+}
+
+.btn:active {
+    background-color: rgb(129, 255, 166);
+    color: rgb(4, 92, 30);
+}
+
+.modal {
+    background-color: rgba(0, 0, 0, .8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+}
+
+.modal-content {
+    margin: 0 auto;
+    margin-top: 3%;
+    max-width: 600px;
+    background-color: #eee;
+    padding: 0;
+    box-shadow: 0 0 2px #fff;
+}
+
+.modal-header h1{
+    font-weight: bold;
+    text-align: center;
+}
+
+.modal-header, .modal-body, .modal-footer{
+    padding: 10px;
+}
+
+.modal-header{
+    background-color: #ccc;
+}
+
+.modal-footer{
+    background-color: #ccc;
+}
+<!--  @media (min-width:768px) {
+    #unity-canvas { background: #231F20; width: 100vw !important; height: 100vh !important; }
+} 
+-->
+</style>
 
 </head>
 
@@ -26,6 +99,31 @@
         <div id="unity-build-title">Metaverse Sample</div>
       </div>
 	  -->
+    </div>
+	   <div id="dv-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>Meu modal com HTML</h1>
+            </div>
+
+            <div class="modal-body">
+            <div class="modal-footer">
+                <button class="btn" onclick="closeModal('dv-modal')">Fechar</button>
+            </div>
+                <p>Integer in augue felis. Quisque bibendum luctus sapien in egestas. Proin ullamcorper tempus eleifend.
+                    Sed at sollicitudin libero. Maecenas sodales condimentum sapien vel mattis. Nam lacinia risus vel
+                    nisl venenatis rhoncus. Duis sit amet massa maximus, mollis mi ac, pellentesque purus. Orci varius
+                    natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc dictum neque
+                    faucibus fringilla pellentesque. Phasellus malesuada aliquet augue. Mauris at eleifend risus, sit
+                    amet scelerisque augue.</p>
+
+                   <iframe src="https://lead2023.gbe.live/video-01/" style="height:600px; width:100%;"></iframe>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn" onclick="closeModal('dv-modal')">Fechar</button>
+            </div>
+        </div>
     </div>
 		<script src="/socket.io/socket.io.js"></script>
 	<script src="client.js"></script>
@@ -72,9 +170,9 @@
            frameworkUrl: buildUrl + "/public.framework.js",
            codeUrl: buildUrl + "/public.wasm",
            streamingAssetsUrl: "StreamingAssets",
-           companyName: "Rio3DStudios",
-           productName: "MetaverseSample",
-           productVersion: "0.1",
+           companyName: "DefaultCompany",
+           productName: "GrifaURPProject",
+           productVersion: "0.1.0",
 	       showBanner: unityShowBanner,
 	  
 	   
@@ -87,13 +185,13 @@
       // happening inside the engine, and you would instead like to size up
       // the canvas DOM size and WebGL render target sizes yourself.
       // config.matchWebGLToCanvasSize = false;
-	     if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+	    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         container.className = "unity-mobile";
         // Avoid draining fillrate performance on mobile devices,
         // and default/override low DPI mode on mobile browsers.
         config.devicePixelRatio = 1;
 	   // canvas.style.width = "100vw";
-      //  canvas.style.height = "100vh";
+       // canvas.style.height = "100vh";
         
       } else {
         canvas.style.width = "100vw";
@@ -117,6 +215,17 @@
         });
       };
       document.body.appendChild(script);
+	  
+	   function closeModal(mn) {
+    let modal = document.getElementById(mn);
+
+    if (typeof modal == 'undefined' || modal === null)
+        return;
+
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+	
 	
 	
 
