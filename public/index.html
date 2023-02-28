@@ -10,34 +10,37 @@
 
 	<style>
 	
-p {
-    text-align: justify;
-}
 
 .content {
     margin: 0 auto;
     max-width: 900px;
     background-color: #eee;
     padding: 10px;
+    
 }
 
 .btn {
-    background-color: rgb(33, 156, 70);
+    background-color: transparent;
     padding: 5px 10px 5px 10px;
-    border: 2px solid rgb(4, 92, 30);
+    border: none;
     cursor: pointer;
     transition: background .3s;
     border-radius: 5px;
     color: #FFF;
+    z-index: 5;
+    margin-right: -25px;
 }
 
 .btn:hover {
-    background-color: rgb(4, 92, 30);
+    background-color: white;
+    color:black;
+    z-index: 5;
 }
 
 .btn:active {
-    background-color: rgb(129, 255, 166);
-    color: rgb(4, 92, 30);
+    background-color: white;
+    color: black;
+    z-index: 5;
 }
 
 .modal {
@@ -53,32 +56,22 @@ p {
 .modal-content {
     margin: 0 auto;
     margin-top: 3%;
-    max-width: 600px;
-    background-color: #eee;
+    max-width: 1100px;
+    max-height: 700px;
+    background-color: none;
     padding: 0;
-    box-shadow: 0 0 2px #fff;
-}
-
-.modal-header h1{
-    font-weight: bold;
-    text-align: center;
-}
-
-.modal-header, .modal-body, .modal-footer{
-    padding: 10px;
-}
-
-.modal-header{
-    background-color: #ccc;
+    
 }
 
 .modal-footer{
-    background-color: #ccc;
+    display: flex;
+    justify-content: end;
+    z-index: 2;
 }
-<!--  @media (min-width:768px) {
+/*  @media (min-width:768px) {
     #unity-canvas { background: #231F20; width: 100vw !important; height: 100vh !important; }
 } 
--->
+*/
 </style>
 
 </head>
@@ -100,34 +93,36 @@ p {
       </div>
 	  -->
     </div>
-	   <div id="dv-modal01" class="modal">
+	
+	<div id="dv-modal01" class="modal">
         <div class="modal-content">
             
 
-            <div class="modal-body">
-            <div class="modal-footer">
-                <button class="btn" onclick="closeModal('dv-modal01')">Fechar</button>
-            </div>
+          <div class="modal-footer">
+            <img style="width:35px;height:35px;margin-right: -30px;" src="http://lead2023.gbe.live/wp-content/uploads/sites/61/2023/02/BOT-Close.png" onclick="closeModal('dv-modal01')">
+            
+          </div>
                
-
-                   <iframe src="https://lead2023.gbe.live/stand/css/" style="height:600px; width:100%;"></iframe>
-            </div>
+          
+          <iframe src="https://lead2023.gbe.live/stand/css/" style="height:600px; width:100%;border:none;"></iframe>
+          
 
           
         </div>
     </div>
+	
 	<div id="dv-modal02" class="modal">
         <div class="modal-content">
             
 
-            <div class="modal-body">
-            <div class="modal-footer">
-                <button class="btn" onclick="closeModal('dv-modal02')">Fechar</button>
-            </div>
+          <div class="modal-footer">
+            <img style="width:35px;height:35px;margin-right: -30px;" src="http://lead2023.gbe.live/wp-content/uploads/sites/61/2023/02/BOT-Close.png" onclick="closeModal('dv-modal02')">
+            
+          </div>
                
-
-                   <iframe src="https://lead2023.gbe.live/stand/dps/" style="height:600px; width:100%;"></iframe>
-            </div>
+          
+          <iframe src="https://lead2023.gbe.live/stand/dps/" style="height:600px; width:100%;border:none;"></iframe>
+          
 
           
         </div>
@@ -136,14 +131,14 @@ p {
         <div class="modal-content">
             
 
-            <div class="modal-body">
-            <div class="modal-footer">
-                <button class="btn" onclick="closeModal('dv-modal03')">Fechar</button>
-            </div>
+          <div class="modal-footer">
+            <img style="width:35px;height:35px;margin-right: -30px;" src="http://lead2023.gbe.live/wp-content/uploads/sites/61/2023/02/BOT-Close.png" onclick="closeModal('dv-modal03')">
+            
+          </div>
                
-
-                   <iframe src="https://lead2023.gbe.live/stand/ethicon/" style="height:600px; width:100%;"></iframe>
-            </div>
+          
+          <iframe src="https://lead2023.gbe.live/stand/ethicon/" style="height:600px; width:100%;border:none;"></iframe>
+          
 
           
         </div>
@@ -152,14 +147,14 @@ p {
         <div class="modal-content">
             
 
-            <div class="modal-body">
-            <div class="modal-footer">
-                <button class="btn" onclick="closeModal('dv-modal04')">Fechar</button>
-            </div>
+          <div class="modal-footer">
+            <img style="width:35px;height:35px;margin-right: -30px;" src="http://lead2023.gbe.live/wp-content/uploads/sites/61/2023/02/BOT-Close.png" onclick="closeModal('dv-modal04')">
+            
+          </div>
                
-
-                   <iframe src="https://lead2023.gbe.live/stand/hto/" style="height:600px; width:100%;"></iframe>
-            </div>
+          
+          <iframe src="https://lead2023.gbe.live/stand/hto/" style="height:600px; width:100%;border:none;"></iframe>
+          
 
           
         </div>
@@ -168,31 +163,30 @@ p {
         <div class="modal-content">
             
 
-            <div class="modal-body">
-            <div class="modal-footer">
-                <button class="btn" onclick="closeModal('dv-modal05')">Fechar</button>
-            </div>
+          <div class="modal-footer">
+            <img style="width:35px;height:35px;margin-right: -30px;" src="http://lead2023.gbe.live/wp-content/uploads/sites/61/2023/02/BOT-Close.png" onclick="closeModal('dv-modal05')">
+            
+          </div>
                
-
-                   <iframe src="https://lead2023.gbe.live/stand/ignis/" style="height:600px; width:100%;"></iframe>
-            </div>
+          
+          <iframe src="https://lead2023.gbe.live/stand/ignis/" style="height:600px; width:100%;border:none;"></iframe>
+          
 
           
         </div>
     </div>
-	
 	<div id="dv-modal06" class="modal">
         <div class="modal-content">
             
 
-            <div class="modal-body">
-            <div class="modal-footer">
-                <button class="btn" onclick="closeModal('dv-modal06')">Fechar</button>
-            </div>
+          <div class="modal-footer">
+            <img style="width:35px;height:35px;margin-right: -30px;" src="http://lead2023.gbe.live/wp-content/uploads/sites/61/2023/02/BOT-Close.png" onclick="closeModal('dv-modal06')">
+            
+          </div>
                
-
-                   <iframe src="https://lead2023.gbe.live/photobooth/" style="height:600px; width:100%;"></iframe>
-            </div>
+          
+          <iframe src="https://lead2023.gbe.live/photobooth/" style="height:600px; width:100%;border:none;"></iframe>
+          
 
           
         </div>
@@ -201,18 +195,19 @@ p {
         <div class="modal-content">
             
 
-            <div class="modal-body">
-            <div class="modal-footer">
-                <button class="btn" onclick="closeModal('dv-modal07')">Fechar</button>
-            </div>
+          <div class="modal-footer">
+            <img style="width:35px;height:35px;margin-right: -30px;" src="http://lead2023.gbe.live/wp-content/uploads/sites/61/2023/02/BOT-Close.png" onclick="closeModal('dv-modal07')">
+            
+          </div>
                
-
-                   <iframe src="https://lead2023.gbe.live/schedule/" style="height:600px; width:100%;"></iframe>
-            </div>
+          
+          <iframe src="https://lead2023.gbe.live/schedule/" style="height:600px; width:100%;border:none;"></iframe>
+          
 
           
         </div>
     </div>
+	   
 		<script src="/socket.io/socket.io.js"></script>
 	<script src="client.js"></script>
 	<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.36/dist/web3.min.js" integrity="sha256-nWBTbvxhJgjslRyuAKJHK+XcZPlCnmIAAMixz6EefVk=" crossorigin="anonymous"></script>
