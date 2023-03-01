@@ -270,4 +270,3 @@ window.onload = (e) => {
 
 	return checkTransactionLoop();
   }
-
