@@ -51,6 +51,13 @@ window.addEventListener('load', function() {
 		
 	socket.on('SPAWN_PLAYER', function(id,name,posX,posY,posZ,model,hair,bear,pants,tshirt,glasses,shoes,skin_color,hair_color,
 		bear_color,pants_color,tshirt_color,glasses_color,shoes_color) {
+			
+			if(pants_color== null)
+			{
+				pants_color = '0';
+				glasses_color = '0';
+				
+			}
 	
 	    var currentUserAtr = id+':'+name+':'+posX+':'+posY+':'+posZ+':'+model+':'+hair+':'+bear+':'+pants+':'+tshirt+':'+glasses+':'+shoes+':'+skin_color+':'+hair_color+':'+
 		bear_color+':'+pants_color+':'+tshirt_color+':'+glasses_color+':'+shoes_color;
