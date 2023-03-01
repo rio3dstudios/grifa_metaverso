@@ -125,6 +125,7 @@ io.on('connection', function(socket){
          clients.forEach( function(i) {
 		    if(i.id!=currentUser.id)
 			{ 
+		      
 		      //send to the client.js script
 		      socket.emit('SPAWN_PLAYER',i.id,i.name,i.posX,i.posY,i.posZ,i.model,i.hair,i.bear,i.pants,i.tshirt,i.glasses,i.shoes,i.skin_color,i.hair_color,
 		i.bear_color,i.acesories_color,i.pants_color,i.primary_tshirt_color,i.tshirt_color,i.glasses_color,i.shoes_color);
