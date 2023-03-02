@@ -8,6 +8,9 @@ resources:
 namespace: grifadigital
 
 images:
+- name: goapp
+  newName: grifadigital/grifa-verso
+  newTag: a5d730608827c6e18d921d6d41bbb5e105bef8e6
 - name: grifa-verso
   newName: grifa-verso
   newTag: 1855be125d34b2f7d97cea18d71ef4711f7ec93f
