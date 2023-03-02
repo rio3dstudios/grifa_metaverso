@@ -24,7 +24,9 @@ function getDistance(x1, y1, x2, y2){
 }
 
 
-io.on('connection', (socket) =>{
+
+//open a connection with the specific client
+io.on('connection', function(socket){
     //print a log in node.js command prompt
   console.log('A user ready for connection!');
   
@@ -496,6 +498,6 @@ if(currentUser)
 
 })
 
-http.listen(process.env.PORT ||3000, function(){
-	console.log('listening on *:3000');
+var server = http.listen(3000, () => {
+  console.log('server is running on port', server.address().port);
 });
