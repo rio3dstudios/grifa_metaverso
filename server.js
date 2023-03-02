@@ -103,7 +103,7 @@ io.on('connection', function(socket){
 				   };//new user  in clients list
 					
 		console.log('[INFO] player '+currentUser.name+': logged!');
-		console.log('[INFO] currentUser.position '+currentUser.position);	
+		//console.log('[INFO] currentUser.position '+currentUser.position);	
 
 		 //add currentUser in clients list
 		 clients.push(currentUser);
@@ -510,7 +510,7 @@ if(currentUser)
 
 
 
-http.listen(process.env.PORT ||3000, function(){
+http.listen(5000||process.env.PORT , function(){
 	console.log('listening on *:3000');
 });
 console.log("------- server is running -------");

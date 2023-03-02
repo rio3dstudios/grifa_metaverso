@@ -77,6 +77,14 @@
 </head>
 
 <body>
+
+<script>
+var port = location.port;
+var url = window.location.href;
+var domain = (new URL(url));
+domain = domain.hostname+(port==80?"":":"+port);
+</script>
+
    <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600></canvas>
       <div id="unity-loading-bar">
