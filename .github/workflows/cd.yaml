@@ -34,7 +34,7 @@ jobs:
 
       - uses: imranismail/setup-kustomize@v1
       - run: |
-          kustomize edit set image goapp=grifadigital/grifa-verso:${{github.sha}}
+          kustomize edit set image grifa-verso=grifadigital/grifa-verso:${{github.sha}}
         working-directory: k8s  
 
       - name: commit
