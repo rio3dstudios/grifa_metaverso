@@ -5,7 +5,7 @@ metadata:
   namespace: grifadigital
 spec:
   selector:
-    app: goapp
+    app: grifa-verso
   ports:
   - port: 80
     targetPort: 3000
