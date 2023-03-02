@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grifa-verso
+  namespace: grifadigital
+spec:
+  selector:
+    matchLabels:
+      app: grifa-verso
+  template:
+    metadata:
+      labels:
+        app: grifa-verso
+    spec:
+      containers:
+      - name: grifa-verso
+        image: grifa-verso
+        resources:
+          limits:
+            memory: "1Gi"
+            cpu: "1000m"
+        ports:
+        - containerPort: 3000
