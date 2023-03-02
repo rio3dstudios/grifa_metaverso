@@ -24,9 +24,7 @@ function getDistance(x1, y1, x2, y2){
 }
 
 
-
-//open a connection with the specific client
-io.on('connection', function(socket){
+io.on('connection', (socket) =>{
     //print a log in node.js command prompt
   console.log('A user ready for connection!');
   
