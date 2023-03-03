@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- deployment.yaml
+- service.yaml
+
+namespace: grifadigital
+
+images:
+- name: goapp
+  newName: grifadigital/grifa-verso
+  newTag: a5d730608827c6e18d921d6d41bbb5e105bef8e6
+- name: grifa-verso
+  newName: grifadigital/grifa-verso
+  newTag: 8d65cb07d5e344dc63a4a8776b79dd718643ec8c
