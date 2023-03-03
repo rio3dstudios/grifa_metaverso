@@ -501,7 +501,7 @@ if(currentUser)
 
 })
 
-http.listen(process.env.PORT ||3000, function(){
-	console.log('listening on *:3000');
+var server = http.listen(3000, () => {
+  console.log('server is running on port', server.address().port);
 });
 console.log("------- server is running -------");
