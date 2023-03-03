@@ -32,7 +32,6 @@ if (cluster.isMaster) {
 }
 function startExpress() {
 
-
 const cors=require("cors");
 const corsOptions ={
    origin:'*', 
