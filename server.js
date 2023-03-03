@@ -2,10 +2,36 @@
 *@autor: Rio 3D Studios
 *@description:  java script server that works as master server of the Basic Example of WebGL Multiplayer Kit
 */
-var express  = require('express');//import express NodeJS framework module
+const express  = require('express');//import express NodeJS framework module
 var app      = express();// create an object of the express module
 var http     = require('http').Server(app);// create a http web server using the http library
 var io       = require('socket.io')(http);// import socketio communication module
+
+//habilita usar cpus
+const cluster = require('node:cluster');
+const totalCPUs = require('node:os').cpus().length;
+const process = require('node:process');
+
+if (cluster.isMaster) {
+  console.log(`Number of CPUs is ${totalCPUs}`);
+  console.log(`Master ${process.pid} is running`);
+
+  // Fork workers.
+  for (let i = 0; i < totalCPUs; i++) {
+    cluster.fork();
+  }
+
+  cluster.on('exit', (worker, code, signal) => {
+    console.log(`worker ${worker.process.pid} died`);
+    console.log("Let's fork another worker!");
+    cluster.fork();
+  });
+
+} else {
+  startExpress();
+}
+function startExpress() {
+
 
 const cors=require("cors");
 const corsOptions ={
@@ -15,11 +41,6 @@ const corsOptions ={
 }
 
 app.use(cors(corsOptions)) // Use this after the variable declaration
-
-
-
-
-
 app.use("/public/TemplateData",express.static(__dirname + "/public/TemplateData"));
 app.use("/public/Build",express.static(__dirname + "/public/Build"));
 app.use(express.static(__dirname+'/public'));
@@ -510,7 +531,9 @@ if(currentUser)
 
 
 
+
 http.listen(process.env.PORT ||3000, function(){
 	console.log('listening on *:3000');
 });
 console.log("------- server is running -------");
+}
