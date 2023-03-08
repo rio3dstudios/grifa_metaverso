@@ -9,5 +9,5 @@ namespace: grifadigital
 
 images:
 - name: grifa-verso
-  newName: grifa-verso
-  newTag: 1855be125d34b2f7d97cea18d71ef4711f7ec93f
+  newName: grifadigital/grifa-verso
+  newTag: d0b2691f9fbe21e213f712b52594c377def60906
