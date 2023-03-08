@@ -21,7 +21,10 @@ var deadline = new Date("mar 9, 2023 08:40:00").getTime();
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9a2483d623b7565ede525ae74317fa4f494f1d47
 =======
 >>>>>>> 9a2483d623b7565ede525ae74317fa4f494f1d47
 =======
