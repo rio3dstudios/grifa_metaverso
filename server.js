@@ -17,18 +17,9 @@ app.use(express.static(__dirname+'/public'));
 var clients			= [];// to storage clients
 var clientLookup = {};// clients search engine
 var sockets = {};//// to storage sockets
-var deadline = new Date("mar 9, 2023 08:40:00").getTime();
+var deadline = new Date("mar 9, 2023 09:30:00").getTime();
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> 9a2483d623b7565ede525ae74317fa4f494f1d47
-=======
->>>>>>> 9a2483d623b7565ede525ae74317fa4f494f1d47
-=======
->>>>>>> 9a2483d623b7565ede525ae74317fa4f494f1d47
 function getDistance(x1, y1, x2, y2){
     let y = x2 - x1;
     let x = y2 - y1;
