@@ -31,6 +31,19 @@ window.addEventListener('load', function() {
 		}
 	  
 	});//END_SOCKET.ON
+	
+	socket.on('UPDATE_DATE', function(days, hours, minutes,seconds) {
+				      		
+	  var currentUserAtr = days+':'+hours+':'+minutes+':'+seconds;
+	  
+	 if(window.unityInstance!=null)
+		{
+		 
+		  window.unityInstance.SendMessage ('NetworkManager', 'OnUpdateDate', currentUserAtr);
+		
+		}
+	  
+	});//END_SOCKET.ON
 
 					      
 		socket.on('JOIN_SUCCESS', function(id,name,posX,posY,posZ,model,hair,bear,pants,tshirt,glasses,shoes,skin_color,hair_color,

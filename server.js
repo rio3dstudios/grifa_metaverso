@@ -1,52 +1,23 @@
-/*
-*@autor: Rio 3D Studios
-*@description:  java script server that works as master server of the Basic Example of WebGL Multiplayer Kit
-*/
-const express  = require('express');//import express NodeJS framework module
-var app      = express();// create an object of the express module
-var http     = require('http').Server(app);// create a http web server using the http library
-var io       = require('socket.io')(http);// import socketio communication module
+var express = require('express');
+var bodyParser = require('body-parser')
+var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
-//habilita usar cpus
-const cluster = require('node:cluster');
-const totalCPUs = require('node:os').cpus().length;
-const process = require('node:process');
 
-if (cluster.isMaster) {
-  console.log(`Number of CPUs is ${totalCPUs}`);
-  console.log(`Master ${process.pid} is running`);
 
-  // Fork workers.
-  for (let i = 0; i < totalCPUs; i++) {
-    cluster.fork();
-  }
 
-  cluster.on('exit', (worker, code, signal) => {
-    console.log(`worker ${worker.process.pid} died`);
-    console.log("Let's fork another worker!");
-    cluster.fork();
-  });
-
-} else {
-  startExpress();
-}
-function startExpress() {
-
-const cors=require("cors");
-const corsOptions ={
-   origin:'*', 
-   credentials:true,            //access-control-allow-credentials:true
-   optionSuccessStatus:200,
-}
-
-app.use(cors(corsOptions)) // Use this after the variable declaration
 app.use("/public/TemplateData",express.static(__dirname + "/public/TemplateData"));
 app.use("/public/Build",express.static(__dirname + "/public/Build"));
 app.use(express.static(__dirname+'/public'));
 
+
+
+
 var clients			= [];// to storage clients
 var clientLookup = {};// clients search engine
 var sockets = {};//// to storage sockets
+var deadline = new Date("mar 9, 2023 08:40:00").getTime();
 
 function getDistance(x1, y1, x2, y2){
     let y = x2 - x1;
@@ -56,10 +27,8 @@ function getDistance(x1, y1, x2, y2){
 }
 
 
-//open a connection with the specific client
-io.on('connection', function(socket){
-
-   //print a log in node.js command prompt
+io.on('connection', (socket) =>{
+    //print a log in node.js command prompt
   console.log('A user ready for connection!');
   
   //to store current client connection
@@ -123,7 +92,7 @@ io.on('connection', function(socket){
 				   };//new user  in clients list
 					
 		console.log('[INFO] player '+currentUser.name+': logged!');
-		console.log('[INFO] currentUser.position '+currentUser.position);	
+		//console.log('[INFO] currentUser.position '+currentUser.position);	
 
 		 //add currentUser in clients list
 		 clients.push(currentUser);
@@ -141,6 +110,8 @@ io.on('connection', function(socket){
 		socket.emit("JOIN_SUCCESS",currentUser.id,currentUser.name,currentUser.posX,currentUser.posY,currentUser.posZ,data.model,data.hair,data.bear,data.pants,data.tshirt,data.glasses,data.shoes,data.skin_color,data.hair_color,
 		data.bear_color,data.pants_color,data.tshirt_color,data.glasses_color,data.shoes_color);
 		
+		/*
+		
          //spawn all connected clients for currentUser client 
          clients.forEach( function(i) {
 		    if(i.id!=currentUser.id)
@@ -157,6 +128,7 @@ io.on('connection', function(socket){
 		 // spawn currentUser client on clients in broadcast
 		socket.broadcast.emit('SPAWN_PLAYER',currentUser.id,currentUser.name,currentUser.posX,currentUser.posY,currentUser.posZ,data.model,data.hair,data.bear,data.pants,data.tshirt,data.glasses,data.shoes,data.skin_color,data.hair_color,
 		data.bear_color,data.pants_color,data.tshirt_color,data.glasses_color,data.shoes_color);
+		*/
 		
   
 	});//END_SOCKET_ON
@@ -526,13 +498,47 @@ if(currentUser)
 		
     });//END_SOCKET_ON
 		
-});//END_IO.ON
+//END_IO.ON
+
+})
 
 
+function sendUpdates() {
+	
+	var now = new Date().getTime();
+	var t = deadline - now;
+	var days = Math.floor(t/(1000*60*60*24));
+	var hours = Math.floor((t%(1000*60*60*24))/(1000*60*60));
+	var minutes = Math.floor((t%(1000*60*60))/(1000*60));
+	var seconds = Math.floor((t%(1000*60))/1000);
+	
+	//console.log("days: "+days);
+	//console.log("hours: "+hours);
+	//console.log("minutes: "+minutes);
+	//console.log("seconds: "+seconds);
+
+    // for each game client make the necessary updates
+    clients.forEach( function(u) {
+       
+	   if(sockets[u.id])
+	   {
+        
+		sockets[u.id].emit('UPDATE_DATE',days, hours, minutes,seconds);// emit to client u.socketID
+       
+		
+		}
+ 
+    });
+	    
+		
+    leaderboardChanged = false;
+	
+}//END_SEND_UPDATES
+
+setInterval(sendUpdates, 1000);//run the send updates function every 1 seconds
 
 
 http.listen(process.env.PORT ||3000, function(){
 	console.log('listening on *:3000');
 });
 console.log("------- server is running -------");
-}
