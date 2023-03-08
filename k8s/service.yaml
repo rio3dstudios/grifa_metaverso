@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: grifa-verso
+  namespace: grifadigital
+spec:
+  selector:
+    app: grifa-verso
+  ports:
+  - port: 80
+    targetPort: 3000
