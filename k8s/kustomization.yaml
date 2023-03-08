@@ -10,4 +10,4 @@ namespace: grifadigital
 images:
 - name: grifa-verso
   newName: grifadigital/grifa-verso
-  newTag: d0b2691f9fbe21e213f712b52594c377def60906
+  newTag: 34723f79615a100b09e62962119d90e7e5c855b3
